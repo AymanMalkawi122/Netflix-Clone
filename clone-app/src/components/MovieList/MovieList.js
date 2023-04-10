@@ -5,8 +5,8 @@ function MovieList(props) {
     let data=props.data;
     
     return(
-    data.map((obj,index)=>{
-        return <Movie data={obj} key={index}/>
+    data.map((obj)=>{
+        return <Movie data={obj} key={obj.id} url={props.url}/>
     })
     )
 }

@@ -12,7 +12,7 @@ function Movie(props) {
     const handleShow = () => setShow(true);
 
     let data = props.data;
-
+let url=props.url;
 
     let websitePath = "https://image.tmdb.org/t/p/original"
 
@@ -29,7 +29,7 @@ function Movie(props) {
                 </Card.Body>
             </Card>
 
-           <ModalMovie data={data} show={show} handleClose={handleClose} absolutePath={`${websitePath}${data.poster_path}`}/>
+           <ModalMovie data={data} show={show} handleClose={handleClose} absolutePath={`${websitePath}${data.poster_path}`} url={url}/>
         </div >
     )
 }

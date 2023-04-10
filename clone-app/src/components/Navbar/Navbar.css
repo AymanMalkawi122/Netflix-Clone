@@ -1,0 +1,14 @@
+.navElement{
+    color: antiquewhite;
+    transition: background  0.5s;
+    margin: 0 4%;
+    padding: 0 01%;
+    border-radius: 10px;
+    width: fit-content;
+}
+div.container{
+    padding: 1% 0;
+}
+.navElement:hover {
+    background-color: rgb(48, 93, 164);
+  }
