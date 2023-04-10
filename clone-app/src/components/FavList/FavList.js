@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import MovieList from "../MovieList/MovieList";
+import MovieListFav from "../MovieList/MovieListFav";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 async function GetData(setData, url, route) {
@@ -20,7 +20,7 @@ function FavList(props) {
     return (
         <main>
             {(data === "loading") ? (<h1>Loading data</h1>) :
-                (<MovieList data={data} url={props.url}/>)}
+                (<MovieListFav data={data} url={props.url}/>)}
         </main>
     )
 

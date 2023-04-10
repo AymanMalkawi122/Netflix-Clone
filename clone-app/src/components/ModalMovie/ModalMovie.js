@@ -4,10 +4,9 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 
 async function AddQuery(obj,url) {
-
     const response = await fetch(url.concat('/addMovie'), {
         method: 'POST',
         headers: {
@@ -16,13 +15,7 @@ async function AddQuery(obj,url) {
         },
         body: JSON.stringify({ title: obj.title, release_date: obj.release_date, poster_path: obj.poster_path, overview: obj.overview })
     })
-    console.log(response.json(),JSON.stringify({ title: obj.title, release_date: obj.release_date, poster_path: obj.poster_path, overview: obj.overview }));
 }
-
-async function UpdateQuery(obj) {
-
-}
-
  
 
 function ModalMovie(props) {
@@ -30,7 +23,7 @@ function ModalMovie(props) {
 
     function AddFav() {
         AddQuery(data,url);
-        UpdateQuery();
+        alert("Successfully Added!")
         handleClose();
     }
 

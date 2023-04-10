@@ -9,7 +9,7 @@ function NavBar(props) {
     return (
         <Navbar bg="dark" expand="lg">
             <Container>
-                <Navbar.Brand className="navElement" href="/">Netlify</Navbar.Brand>
+                <Navbar.Brand className="navElement" href="/">Netflix Clone</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
