@@ -1,32 +1,29 @@
 
 import { useState, useEffect } from 'react';
-import MovieList from "../MovieList/MovieList";
+import MovieListFav from "../MovieList/MovieListFav";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 async function GetData(setData, url, route) {
     setData("loading");
     const response = await fetch(`${url}${route}`);
-    const jsonData = await response.json(); 
+    const jsonData = await response.json();
     setData(jsonData);
 }
 
-
-function Home(props) {
+function FavList(props) {
 
     let [data, setData] = useState([]);
 
-  
     useEffect(() => {
-        GetData(setData, props.url, "/trending")
+        GetData(setData, props.url,"/getMovies")
     }, []);
-
     return (
         <main>
-            {(data==="loading")?(<h1>Loading data</h1>):
-            (<MovieList data={data} url={props.url}/>)}
+            {(data === "loading") ? (<h1>Loading data</h1>) :
+                (<MovieListFav data={data} url={props.url}/>)}
         </main>
     )
+
 }
 
-export default Home;
+export default FavList;
