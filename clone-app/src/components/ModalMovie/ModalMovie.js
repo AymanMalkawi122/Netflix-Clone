@@ -6,27 +6,30 @@ import Button from 'react-bootstrap/Button';
 
 import { useState} from 'react';
 
-async function AddQuery(obj,url) {
+async function AddQuery(obj,url,comment) {
     const response = await fetch(url.concat('/addMovie'), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
-        body: JSON.stringify({ title: obj.title, release_date: obj.release_date, poster_path: obj.poster_path, overview: obj.overview })
+        body: JSON.stringify({ title: obj.title, release_date: obj.release_date, poster_path: obj.poster_path, overview: obj.overview,comment:comment })
     })
 }
  
 
+
 function ModalMovie(props) {
     let data = props.data, show = props.show, handleClose = props.handleClose, absolutePath = props.absolutePath,url=props.url;
-
+let comment;
     function AddFav() {
-        AddQuery(data,url);
-        alert("Successfully Added!")
+        AddQuery(data,url,comment);
+        alert("Successfully Added!");
         handleClose();
     }
-
+    function handleChange(e) {
+        comment = e.target.value;
+    }
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header id="modalHeader" closeButton>
@@ -38,7 +41,7 @@ function ModalMovie(props) {
                 <Form>
                     <Form.Group>
                         <Form.Label>Comment</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control name="Comment" onChange={handleChange} as="textarea" rows={3} />
                     </Form.Group>
                 </Form>
             </Modal.Body>
